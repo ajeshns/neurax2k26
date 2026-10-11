@@ -1,0 +1,1015 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>College Symposium | NEURALIX 2K26</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+    <!-- CSS -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
+
+        <!-- College Logo and Name -->
+        <a href="#home" class="brand">
+            <div class="logo-box">
+                <img src="Designer.png"
+                     alt="College Logo"
+                     class="college-logo">
+            </div>
+
+            <div class="brand-info">
+                <span class="college-name">
+                    PONJESLY COLLEGE
+                </span>
+                <span class="college-subtitle">
+                    OF ENGINEERING
+                </span>
+                <span class="symposium-name">
+                    NEURALIX <span>2K26</span>
+                </span>
+            </div>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="navMenu">
+
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navigation -->
+        <nav class="nav-menu" id="navMenu">
+
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#events" class="nav-link">Events</a>
+            <a href="#schedule" class="nav-link">Schedule</a>
+            <a href="#contact" class="nav-link">Contact</a>
+
+            <a href="#register" class="register-btn mobile-register">
+                Register <span>↗</span>
+            </a>
+        </nav>
+
+        <!-- Desktop Register Button -->
+        <a href="#register" class="register-btn desktop-register">
+            <span>Register Now</span>
+            <span class="arrow">↗</span>
+        </a>
+
+    </header>
+
+   <!--  -->
+    <!-- JavaScript -->
+    <script >
+const navbar = document.getElementById("navbar");
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+const navLinks = document.querySelectorAll(".nav-link");
+
+// Open and close the mobile menu
+menuToggle.addEventListener("click", () => {
+    const isOpen = navMenu.classList.toggle("show");
+
+    menuToggle.classList.toggle("open", isOpen);
+    menuToggle.setAttribute("aria-expanded", isOpen);
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+    );
+});
+
+// Close menu when a navigation link is clicked
+document.querySelectorAll(".nav-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+        navMenu.classList.remove("show");
+        menuToggle.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+    });
+});
+
+// Navbar shadow when scrolling
+function updateNavbar() {
+    navbar.classList.toggle("scrolled", window.scrollY > 25);
+}
+
+window.addEventListener("scroll", updateNavbar, { passive: true });
+updateNavbar();
+
+// Highlight the section currently visible
+const sections = document.querySelectorAll("main section[id]");
+
+const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            navLinks.forEach(link => {
+                link.classList.toggle(
+                    "active",
+                    link.getAttribute("href") === `#${entry.target.id}`
+                );
+            });
+        }
+    });
+}, {
+    rootMargin: "-25% 0px -60% 0px"
+});
+
+sections.forEach(section => sectionObserver.observe(section));
+
+// Close the menu when clicking outside
+document.addEventListener("click", event => {
+    if (!navbar.contains(event.target)) {
+        navMenu.classList.remove("show");
+        menuToggle.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+    }
+});
+
+// Reset menu when switching to desktop
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 820) {
+        navMenu.classList.remove("show");
+        menuToggle.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+    }
+});
+</script>
+
+<section class="hero" id="home">
+  <div class="hero-overlay"></div>
+
+  <div class="container hero-content">
+    <div class="row align-items-center min-vh-100">
+
+      <div class="col-lg-7">
+        <p class="event-badge">✦ NATIONAL LEVEL TECHNICAL SYMPOSIUM</p>
+
+        <h1 class="hero-title">
+          INNOVATE.<br>
+          <span>CREATE.</span><br>
+          DOMINATE.
+        </h1>
+
+        <h3 class="symposium-name">WELCOME TO NEURALIX 2K26</h3>
+
+        <p class="hero-description">
+          Explore the future of Artificial Intelligence and Technology.
+          Showcase your talent, challenge your limits, and innovate the future.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#register" class="btn btn-register">Register Now ↗</a>
+          <a href="#events" class="btn btn-explore">Explore Events ↓</a>
+        </div>
+
+        <div class="event-info">
+          <div>📅 <span>Coming Soon</span></div>
+          <div>📍 <span>Ponjesly College of Engineering</span></div>
+          <div>💻 <span>CSE (AI & ML)</span></div>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="ai-visual">
+          <div class="orbit orbit-1"></div>
+          <div class="orbit orbit-2"></div>
+          <div class="ai-core">AI</div>
+
+          <div class="float-card card-1">✦ Artificial Intelligence</div>
+          <div class="float-card card-2">⌘ Innovation</div>
+          <div class="float-card card-3">◈ Technology</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<script >
+// Animated floating particles
+const hero = document.querySelector(".hero");
+
+for (let i = 0; i < 45; i++) {
+  const particle = document.createElement("span");
+
+  Object.assign(particle.style, {
+    position: "absolute",
+    left: Math.random() * 100 + "%",
+    top: Math.random() * 100 + "%",
+    width: Math.random() * 3 + 2 + "px",
+    height: Math.random() * 3 + 2 + "px",
+    borderRadius: "50%",
+    background: "#00d9ff",
+    boxShadow: "0 0 10px #00d9ff",
+    opacity: Math.random() * 0.7 + 0.2,
+    pointerEvents: "none",
+    animation: `particleMove ${5 + Math.random() * 8}s linear infinite`
+  });
+
+  hero.appendChild(particle);
+}
+
+// Add particle animation
+const style = document.createElement("style");
+
+style.textContent = `
+  @keyframes particleMove {
+    from { transform: translateY(30px); }
+    to { transform: translateY(-150px); }
+  }
+`;
+
+document.head.appendChild(style);
+
+// Interactive AI visual
+const visual = document.querySelector(".ai-visual");
+
+if (visual && window.matchMedia("(hover: hover)").matches) {
+  visual.addEventListener("mousemove", (e) => {
+    const rect = visual.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+    visual.style.transform =
+      `translate(${x * 10}px, ${y * 10}px)`;
+  });
+
+  visual.addEventListener("mouseleave", () => {
+    visual.style.transform = "";
+  });
+}
+</script>
+
+<!-- Technical Events Section -->
+<section class="technical-section" id="technical">
+
+    <div class="container">
+        <div class="technical-heading">
+            <span class="tech-tag">⚡ SHOW YOUR SKILLS</span>
+            <h2>Technical <span>Events</span></h2>
+            <p>Explore our events and challenge your technical skills.</p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Event 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="event-card">
+                    <div class="event-icon">💻</div>
+                    <h3>Code Debugging</h3>
+                    <p>Find errors and solve coding challenges.</p>
+                    <button class="event-btn"
+                        onclick="showEvent(0)">View Details ↗</button>
+                </div>
+            </div>
+
+            <!-- Event 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="event-card">
+                    <div class="event-icon">🧠</div>
+                    <h3>Technical Quiz</h3>
+                    <p>Test your knowledge of technology and computing.</p>
+                    <button class="event-btn"
+                        onclick="showEvent(1)">View Details ↗</button>
+                </div>
+            </div>
+
+            <!-- Event 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="event-card">
+                    <div class="event-icon">🤖</div>
+                    <h3>Paper Presentation</h3>
+                    <p>Present your innovative ideas and research.</p>
+                    <button class="event-btn"
+                        onclick="showEvent(2)">View Details ↗</button>
+                </div>
+            </div>
+
+            <!-- Event 4 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="event-card">
+                    <div class="event-icon">🌐</div>
+                    <h3>Web Design</h3>
+                    <p>Design creative and responsive websites.</p>
+                    <button class="event-btn"
+                        onclick="showEvent(3)">View Details ↗</button>
+                </div>
+            </div>
+
+            <!-- Event 5 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="event-card">
+                    <div class="event-icon">🔐</div>
+                    <h3>Cyber Challenge</h3>
+                    <p>Challenge your cybersecurity knowledge.</p>
+                    <button class="event-btn"
+                        onclick="showEvent(4)">View Details ↗</button>
+                </div>
+            </div>
+
+            <!-- Event 6 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="event-card">
+                    <div class="event-icon">🚀</div>
+                    <h3>Project Expo</h3>
+                    <p>Showcase your projects and innovations.</p>
+                    <button class="event-btn"
+                        onclick="showEvent(5)">View Details ↗</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Event Details Popup -->
+<div class="event-modal" id="eventModal"
+     role="dialog" aria-modal="true"
+     aria-labelledby="modalTitle" aria-hidden="true">
+
+    <div class="event-modal-box">
+        <button class="modal-close" onclick="closeEvent()"
+                aria-label="Close popup">&times;</button>
+
+        <div class="modal-event-icon" id="modalIcon">💻</div>
+        <span class="modal-label">NEURALIX 2K26</span>
+        <h2 id="modalTitle">Event Name</h2>
+        <p id="modalDescription"></p>
+
+        <div class="modal-info">
+            <h4>📌 Event Details</h4>
+            <p><strong>Format:</strong> <span id="modalFormat"></span></p>
+            <p><strong>Rules:</strong> <span id="modalRules"></span></p>
+            <p><strong>Team:</strong> <span id="modalTeam"></span></p>
+            <p><strong>Coordinator:</strong> <span id="modalCoordinator"></span></p>
+        </div>
+
+        <button class="event-btn modal-ok" onclick="closeEvent()">
+            Got It ✓
+        </button>
+    </div>
+</div>
+<script >
+const technicalEvents = [
+    {
+        icon: "💻",
+        title: "Code Debugging",
+        description: "Find and fix errors in programming code using your logical thinking and programming skills.",
+        format: "Individual participation",
+        rules: "Correct the given code within the allotted time. Internet access is not allowed.",
+        team: "Individual",
+        coordinator: "Update with coordinator name and contact"
+    },
+    {
+        icon: "🧠",
+        title: "Technical Quiz",
+        description: "Answer questions on programming, computer science, AI and emerging technologies.",
+        format: "Question-and-answer rounds",
+        rules: "Follow the quiz master's instructions. The decision of the event coordinators is final.",
+        team: "Individual or team — confirm with organizers",
+        coordinator: "Update with coordinator name and contact"
+    },
+    {
+        icon: "🤖",
+        title: "Paper Presentation",
+        description: "Present your research, technical concepts or innovative ideas to the judges.",
+        format: "Presentation followed by questions",
+        rules: "Bring your presentation file. Follow the time limit and use original work.",
+        team: "Confirm team size with organizers",
+        coordinator: "Update with coordinator name and contact"
+    },
+    {
+        icon: "🌐",
+        title: "Web Design",
+        description: "Create an attractive, responsive website based on the theme provided.",
+        format: "Practical website-building challenge",
+        rules: "Use the permitted tools only and complete the website within the given time.",
+        team: "Individual",
+        coordinator: "Update with coordinator name and contact"
+    },
+    {
+        icon: "🔐",
+        title: "Cyber Challenge",
+        description: "Test your cybersecurity knowledge through security questions and problem-solving challenges.",
+        format: "Technical challenge",
+        rules: "Work only on the systems and challenges authorized by the organizers.",
+        team: "Confirm with organizers",
+        coordinator: "Update with coordinator name and contact"
+    },
+    {
+        icon: "🚀",
+        title: "Project Expo",
+        description: "Demonstrate your software, AI or engineering project and explain its features.",
+        format: "Project demonstration and judging",
+        rules: "Present your own work and explain its purpose, features and implementation.",
+        team: "Confirm team size with organizers",
+        coordinator: "Update with coordinator name and contact"
+    }
+];
+
+const eventModal = document.getElementById("eventModal");
+
+function showEvent(index) {
+    const event = technicalEvents[index];
+
+    if (!event) return;
+
+    document.getElementById("modalIcon").textContent = event.icon;
+    document.getElementById("modalTitle").textContent = event.title;
+    document.getElementById("modalDescription").textContent = event.description;
+    document.getElementById("modalFormat").textContent = event.format;
+    document.getElementById("modalRules").textContent = event.rules;
+    document.getElementById("modalTeam").textContent = event.team;
+    document.getElementById("modalCoordinator").textContent = event.coordinator;
+
+    eventModal.classList.add("active");
+    eventModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+
+    eventModal.querySelector(".modal-close").focus();
+}
+
+function closeEvent() {
+    eventModal.classList.remove("active");
+    eventModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+}
+
+eventModal.addEventListener("click", function (event) {
+    if (event.target === eventModal) {
+        closeEvent();
+    }
+});
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" &&
+        eventModal.classList.contains("active")) {
+        closeEvent();
+    }
+});
+</script>
+
+<!-- Non-Technical Events Section -->
+<section class="nontech-section" id="non-technical">
+    <div class="container">
+
+        <div class="nontech-heading">
+            <span class="nontech-tag">✨ CREATIVITY MEETS FUN</span>
+            <h2>Non-Technical <span>Events</span></h2>
+            <p>Unleash your creativity, imagination and entertainment skills.</p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4">
+                <article class="nontech-card"
+                    style="--event-bg: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80')">
+                    <div class="nontech-card-content">
+                        <span class="nontech-icon">🎤</span>
+                        <h3>Surprise Speech</h3>
+                        <p>Speak confidently on a topic revealed on the spot.</p>
+                        <button class="nontech-btn" onclick="showNonTechEvent(0)">
+                            View Details ↗
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <article class="nontech-card"
+                    style="--event-bg: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80')">
+                    <div class="nontech-card-content">
+                        <span class="nontech-icon">🎨</span>
+                        <h3>AI Meme Creation</h3>
+                        <p>Create funny memes inspired by AI and technology.</p>
+                        <button class="nontech-btn" onclick="showNonTechEvent(1)">
+                            View Details ↗
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <article class="nontech-card"
+                    style="--event-bg: url('https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=900&q=80')">
+                    <div class="nontech-card-content">
+                        <span class="nontech-icon">🎭</span>
+                        <h3>Talent Show</h3>
+                        <p>Showcase your unique talents and entertain the audience.</p>
+                        <button class="nontech-btn" onclick="showNonTechEvent(2)">
+                            View Details ↗
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <article class="nontech-card"
+                    style="--event-bg: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80')">
+                    <div class="nontech-card-content">
+                        <span class="nontech-icon">🧩</span>
+                        <h3>Connection Game</h3>
+                        <p>Connect clues, images and words to find the answer.</p>
+                        <button class="nontech-btn" onclick="showNonTechEvent(3)">
+                            View Details ↗
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <article class="nontech-card"
+                    style="--event-bg: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80')">
+                    <div class="nontech-card-content">
+                        <span class="nontech-icon">📸</span>
+                        <h3>Tech Photography</h3>
+                        <p>Capture creative photos inspired by technology and innovation.</p>
+                        <button class="nontech-btn" onclick="showNonTechEvent(4)">
+                            View Details ↗
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <article class="nontech-card"
+                    style="--event-bg: url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80')">
+                    <div class="nontech-card-content">
+                        <span class="nontech-icon">🎬</span>
+                        <h3>Reel Making</h3>
+                        <p>Create a short, engaging video about campus life or technology.</p>
+                        <button class="nontech-btn" onclick="showNonTechEvent(5)">
+                            View Details ↗
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Non-Technical Event Popup -->
+<div class="nontech-modal" id="nonTechModal"
+     role="dialog" aria-modal="true"
+     aria-labelledby="nonTechModalTitle" aria-hidden="true">
+
+    <div class="nontech-modal-box">
+        <button class="nontech-close" onclick="closeNonTechEvent()"
+                aria-label="Close popup">&times;</button>
+
+        <span class="nontech-modal-icon" id="nonTechIcon">🎤</span>
+        <span class="nontech-modal-label">NEURALIX 2K26</span>
+        <h2 id="nonTechModalTitle">Event Name</h2>
+        <p id="nonTechDescription"></p>
+
+        <div class="nontech-details">
+            <h4>📌 Event Details</h4>
+            <p><strong>Format:</strong> <span id="nonTechFormat"></span></p>
+            <p><strong>Rules:</strong> <span id="nonTechRules"></span></p>
+            <p><strong>Team:</strong> <span id="nonTechTeam"></span></p>
+            <p><strong>Coordinator:</strong> <span id="nonTechCoordinator"></span></p>
+        </div>
+
+        <button class="nontech-btn nontech-done"
+                onclick="closeNonTechEvent()">Got It ✓</button>
+    </div>
+</div>
+<script >
+const nonTechEvents = [
+    {
+        icon: "🎤",
+        title: "Surprise Speech",
+        description: "Show your public-speaking skills with an interesting topic revealed during the event.",
+        format: "Impromptu speaking",
+        rules: "Prepare your speech within the allotted time. Respectful and relevant content is required.",
+        team: "Individual",
+        coordinator: "Add coordinator name and contact"
+    },
+    {
+        icon: "🎨",
+        title: "AI Meme Creation",
+        description: "Create a funny, original meme related to artificial intelligence, machine learning or student life.",
+        format: "Meme creation challenge",
+        rules: "Follow the organizers' tool policy. Keep content original, respectful and appropriate.",
+        team: "Individual",
+        coordinator: "Add coordinator name and contact"
+    },
+    {
+        icon: "🎭",
+        title: "Talent Show",
+        description: "Show your special talent through singing, dancing, acting or another approved performance.",
+        format: "Live performance",
+        rules: "Stay within the time limit and bring any required props or audio files.",
+        team: "Individual or group",
+        coordinator: "Add coordinator name and contact"
+    },
+    {
+        icon: "🧩",
+        title: "Connection Game",
+        description: "Solve visual clues, word puzzles and picture connections using observation and teamwork.",
+        format: "Puzzle-solving rounds",
+        rules: "Follow the round instructions. No outside help during the challenge.",
+        team: "Confirm with organizers",
+        coordinator: "Add coordinator name and contact"
+    },
+    {
+        icon: "📸",
+        title: "Tech Photography",
+        description: "Capture a creative photograph inspired by AI, technology, campus life or innovation.",
+        format: "Photography challenge",
+        rules: "Submit original photographs and follow the specified submission format.",
+        team: "Individual",
+        coordinator: "Add coordinator name and contact"
+    },
+    {
+        icon: "🎬",
+        title: "Reel Making",
+        description: "Create a short video featuring technology, AI or college life in a creative way.",
+        format: "Short-video challenge",
+        rules: "Follow the duration and submission guidelines. Use only permitted media and music.",
+        team: "Individual or group",
+        coordinator: "Add coordinator name and contact"
+    }
+];
+
+const nonTechModal = document.getElementById("nonTechModal");
+
+function showNonTechEvent(index) {
+    const event = nonTechEvents[index];
+
+    if (!event) return;
+
+    document.getElementById("nonTechIcon").textContent = event.icon;
+    document.getElementById("nonTechModalTitle").textContent = event.title;
+    document.getElementById("nonTechDescription").textContent = event.description;
+    document.getElementById("nonTechFormat").textContent = event.format;
+    document.getElementById("nonTechRules").textContent = event.rules;
+    document.getElementById("nonTechTeam").textContent = event.team;
+    document.getElementById("nonTechCoordinator").textContent = event.coordinator;
+
+    nonTechModal.classList.add("active");
+    nonTechModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+
+    nonTechModal.querySelector(".nontech-close").focus();
+}
+
+function closeNonTechEvent() {
+    nonTechModal.classList.remove("active");
+    nonTechModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+}
+
+nonTechModal.addEventListener("click", function (event) {
+    if (event.target === nonTechModal) {
+        closeNonTechEvent();
+    }
+});
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" &&
+        nonTechModal.classList.contains("active")) {
+        closeNonTechEvent();
+    }
+});
+</script>
+
+<!-- Event Schedule Section -->
+<section class="schedule-section" id="schedule">
+
+    <!-- Animated Background Bubbles -->
+    <div class="schedule-bubbles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="container schedule-content">
+
+        <div class="schedule-heading">
+            <span class="schedule-tag">📅 SAVE THE DATE</span>
+            <h2>Event <span>Schedule</span></h2>
+            <p>Explore the exciting journey of NEURALIX 2K26.</p>
+        </div>
+
+        <div class="schedule-timeline">
+
+            <div class="schedule-item">
+                <div class="schedule-time">09:00 AM</div>
+                <div class="schedule-dot"></div>
+                <div class="schedule-card">
+                    <span class="schedule-icon">📝</span>
+                    <div>
+                        <h3>Registration</h3>
+                        <p>Welcome participants and complete event registration.</p>
+                        <span class="schedule-duration">09:00 AM – 09:30 AM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-time">09:30 AM</div>
+                <div class="schedule-dot"></div>
+                <div class="schedule-card">
+                    <span class="schedule-icon">🎉</span>
+                    <div>
+                        <h3>Inauguration</h3>
+                        <p>Opening ceremony and welcome address.</p>
+                        <span class="schedule-duration">09:30 AM – 10:00 AM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-time">10:00 AM</div>
+                <div class="schedule-dot"></div>
+                <div class="schedule-card">
+                    <span class="schedule-icon">💻</span>
+                    <div>
+                        <h3>Technical Events</h3>
+                        <p>Participate in coding, quizzes, paper presentations and more.</p>
+                        <span class="schedule-duration">10:00 AM – 12:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-time">12:00 PM</div>
+                <div class="schedule-dot"></div>
+                <div class="schedule-card">
+                    <span class="schedule-icon">🍽️</span>
+                    <div>
+                        <h3>Lunch Break</h3>
+                        <p>Take a break and connect with fellow participants.</p>
+                        <span class="schedule-duration">12:00 PM – 01:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-time">01:00 PM</div>
+                <div class="schedule-dot"></div>
+                <div class="schedule-card">
+                    <span class="schedule-icon">🎭</span>
+                    <div>
+                        <h3>Non-Technical Events</h3>
+                        <p>Enjoy creative challenges, games and entertainment.</p>
+                        <span class="schedule-duration">01:00 PM – 02:30 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-time">02:30 PM</div>
+                <div class="schedule-dot"></div>
+                <div class="schedule-card">
+                    <span class="schedule-icon">🏆</span>
+                    <div>
+                        <h3>Prize Distribution</h3>
+                        <p>Celebrate the winners and recognize their achievements.</p>
+                        <span class="schedule-duration">02:30 PM – 03:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-time">03:00 PM</div>
+                <div class="schedule-dot"></div>
+                <div class="schedule-card">
+                    <span class="schedule-icon">👋</span>
+                    <div>
+                        <h3>Valedictory</h3>
+                        <p>Closing ceremony and vote of thanks.</p>
+                        <span class="schedule-duration">03:00 PM – 03:30 PM</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="schedule-note">
+            ✨ One day. Endless ideas. Unlimited possibilities.
+        </p>
+
+    </div>
+</section>
+
+<!-- PRIZES SECTION -->
+<section class="prizes-section" id="prizes">
+    <div class="prize-bubbles">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+    </div>
+
+    <div class="container">
+        <div class="section-heading">
+            <span class="section-tag">🏆 REWARDS & RECOGNITION</span>
+            <h2>Win <span>Big Prizes</span></h2>
+            <p>Show your talent, challenge your limits, and take home the glory!</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+
+            <!-- First Prize -->
+            <div class="col-md-6 col-lg-4">
+                <div class="prize-card first-prize">
+                    <div class="prize-glow"></div>
+                    <div class="prize-icon">🥇</div>
+                    <span class="prize-position">FIRST PRIZE</span>
+                    <h3>Champion</h3>
+                    <div class="prize-amount">₹5,000</div>
+                    <p>For outstanding performance and creativity.</p>
+                    <div class="prize-ribbon">GOLD WINNER</div>
+                </div>
+            </div>
+
+            <!-- Second Prize -->
+            <div class="col-md-6 col-lg-4">
+                <div class="prize-card second-prize">
+                    <div class="prize-glow"></div>
+                    <div class="prize-icon">🥈</div>
+                    <span class="prize-position">SECOND PRIZE</span>
+                    <h3>Runner Up</h3>
+                    <div class="prize-amount">₹3,000</div>
+                    <p>For excellent skills and innovative ideas.</p>
+                    <div class="prize-ribbon">SILVER WINNER</div>
+                </div>
+            </div>
+
+            <!-- Third Prize -->
+            <div class="col-md-6 col-lg-4">
+                <div class="prize-card third-prize">
+                    <div class="prize-glow"></div>
+                    <div class="prize-icon">🥉</div>
+                    <span class="prize-position">THIRD PRIZE</span>
+                    <h3>Second Runner Up</h3>
+                    <div class="prize-amount">₹1,500</div>
+                    <p>For great effort and technical talent.</p>
+                    <div class="prize-ribbon">BRONZE WINNER</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="prize-note">
+            ✨ Certificates and exciting surprises await participants!
+        </div>
+    </div>
+</section>
+
+<!-- NEURALIX 2K26 REGISTRATION -->
+<section class="ai-register-section" id="registration">
+    <div class="ai-register-container">
+
+        <!-- LEFT: AI & ML IMAGE -->
+        <div class="ai-register-visual">
+            <div class="ai-image-glow"></div>
+
+            <img
+                src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1000&q=85"
+                alt="Artificial Intelligence and Machine Learning"
+                class="ai-register-image"
+            >
+
+            <div class="ai-image-label">
+                <span class="ai-status-dot"></span>
+                FUTURE • INNOVATION • TECHNOLOGY
+            </div>
+
+            <div class="ai-floating-tag tag-ai">✦ Artificial Intelligence</div>
+            <div class="ai-floating-tag tag-ml">⌘ Machine Learning</div>
+        </div>
+
+        <!-- RIGHT: REGISTRATION CONTENT -->
+        <div class="ai-register-content">
+            <span class="ai-register-badge">🚀 REGISTRATIONS OPEN</span>
+
+            <h2>
+                Be Part of<br>
+                <span class="ai-gradient-text">NEURALIX 2K26</span>
+            </h2>
+
+            <p class="ai-register-description">
+                Think beyond limits. Explore AI, unlock your creativity,
+                and connect with the next generation of innovators.
+                Your journey starts here!
+            </p>
+
+            <div class="ai-register-features">
+                <span>✦ Technical Events</span>
+                <span>✦ Non-Technical Events</span>
+                <span>✦ Exciting Prizes</span>
+            </div>
+
+            <!-- Replace the URL below with your Google Form URL -->
+            <a
+                href="YOUR_GOOGLE_FORM_URL"
+                class="ai-register-button"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <span class="register-button-text">Register Now</span>
+                <span class="register-button-arrow">↗</span>
+            </a>
+
+            <p class="ai-register-note">
+                <span>🔒</span> Registration opens securely in Google Forms
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<footer class="neuralix-footer" id="footer">
+
+  <div class="footer-glow"></div>
+
+  <div class="footer-container">
+
+    <!-- College Information -->
+    <div class="footer-about">
+      <h2 class="footer-logo">NEURALIX <span>2K26</span></h2>
+      <h3>PONJESLY COLLEGE OF ENGINEERING</h3>
+      <p class="footer-dept">
+        Department of Computer Science and Engineering
+        (Artificial Intelligence & Machine Learning)
+      </p>
+      <p>
+        Code. Create. Compete. Join us to explore innovation,
+        technology and the future of AI.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <a href="#home">Home</a>
+      <a href="#technical">Technical Events</a>
+      <a href="#non-technical">Non-Technical Events</a>
+      <a href="#schedule">Event Schedule</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#registration">Register Now</a>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-contact">
+      <h3>Contact Us</h3>
+      <p>📍 Ponjesly College of Engineering</p>
+      <p>📧 <a href="mailto:YOUR-OFFICIAL-EMAIL@example.com">
+        YOUR-OFFICIAL-EMAIL@example.com
+      </a></p>
+      <p>📞 <a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a></p>
+    </div>
+
+  </div>
+
+  <!-- Social Media -->
+  <div class="footer-social">
+    <a href="#" aria-label="Instagram">Instagram</a>
+    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+    <a href="#" aria-label="YouTube">YouTube</a>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 NEURALIX 2K26. All Rights Reserved.</p>
+    <p>Designed with <span class="heart">♥</span> by CSE (AI & ML)</p>
+    <a href="#home" class="back-top">↑ Back to Top</a>
+  </div>
+
+</footer>
+
+</body>
+</html>
